@@ -1,5 +1,5 @@
 node_modules
-dist
+# dist
 calendar.bundle.js
 calendar.bundle.js.map
 # rely on yarn.lock instead
