@@ -75,7 +75,7 @@ class DatesRangePicker
 
     return (
       <DatesRangeView
-        { ...rest }
+        {...rest}
         values={this.buildCalendarValues()}
         onNextPageBtnClick={this.switchToNextPage}
         onPrevPageBtnClick={this.switchToPrevPage}
@@ -136,8 +136,8 @@ class DatesRangePicker
 
   protected getInitialDatePosition(): number {
     return getInitialDatePosition(this.state.date.date().toString(),
-                                  this.buildCalendarValues(),
-                                  this.getSelectableCellPositions());
+      this.buildCalendarValues(),
+      this.getSelectableCellPositions());
   }
 
   // TODO: too complicated method
@@ -186,13 +186,13 @@ class DatesRangePicker
         return { start: startPosition, end: endPosition };
       }
       if (startPosition) {
-        return { start: startPosition, end: DAYS_ON_PAGE - 1};
+        return { start: startPosition, end: DAYS_ON_PAGE - 1 };
       }
       if (endPosition) {
-        return { start: 0, end: endPosition};
+        return { start: 0, end: endPosition };
       }
       if (this.state.date.isBetween(start, end)) {
-        return { start: 0, end: DAYS_ON_PAGE - 1};
+        return { start: 0, end: DAYS_ON_PAGE - 1 };
       }
     }
     if (start) {
@@ -261,19 +261,30 @@ class DatesRangePicker
       data.value = { start: buildMoment(this.state.date, firstOnPage, itemPosition, localization) };
     } else if (!isNil(start) && isNil(end)) {
       const selectedDate = buildMoment(this.state.date, firstOnPage, itemPosition, localization);
-      if (selectedDate.isAfter(start, 'date') || (allowSameEndDate && selectedDate.isSame(start, 'date'))) {
+      if (selectedDate.isAfter(start, 'date')) {
         data.value = {
           start,
           end: selectedDate,
         };
       }
+      else if (allowSameEndDate || !selectedDate.isSame(start, 'date')) {
+        data.value = {
+          start: selectedDate,
+          end: start,
+        };
+      }
+    } else if(start!==undefined && end!==undefined) {
+      const selectedDate = buildMoment(this.state.date, firstOnPage, itemPosition, localization);
+      data.value = {
+        start: selectedDate,
+      };
     }
     this.props.onChange(e, data);
   }
 
   protected switchToNextPage = (e: React.SyntheticEvent<HTMLElement>,
-                                data: any,
-                                callback: () => void): void => {
+    data: any,
+    callback: () => void): void => {
     this.setState(({ date }) => {
       const nextDate = date.clone();
       nextDate.add(1, 'month');
@@ -283,8 +294,8 @@ class DatesRangePicker
   }
 
   protected switchToPrevPage = (e: React.SyntheticEvent<HTMLElement>,
-                                data: any,
-                                callback: () => void): void => {
+    data: any,
+    callback: () => void): void => {
     this.setState(({ date }) => {
       const prevDate = date.clone();
       prevDate.subtract(1, 'month');
@@ -344,9 +355,9 @@ function getDatesFromNextMonth(date, allDays, nextMonthStartPosition) {
 
 /** Build moment based on current page and date position on that page. */
 function buildMoment(pageReferenceDate: Moment,
-                     firstOnPage: number,
-                     dateToBuildPosition: number,
-                     localization: string): Moment {
+  firstOnPage: number,
+  dateToBuildPosition: number,
+  localization: string): Moment {
   let result;
   if (firstOnPage === 1/* page starts from first day in month */) {
     const dateOptions = {

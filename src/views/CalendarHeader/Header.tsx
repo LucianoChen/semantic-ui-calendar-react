@@ -52,12 +52,17 @@ function Header(props: HeaderProps) {
   const cellStyle = {
     border: 'none',
     borderBottom: displayWeeks ? 'none' : '1px solid rgba(34,36,38,.1)',
+    padding: "0.4em 0",
   };
   const prevPageBtnStyle = {
     cursor: hasPrevPage ? 'pointer' : 'auto',
+    padding: '0.7em 1em',
+    height: 'auto'
   };
   const nextPageBtnStyle = {
     cursor: hasNextPage ? 'pointer' : 'auto',
+    padding: '0.7em 1em',
+    height: 'auto'
   };
   const headerTitleStyle = {
     cursor: onHeaderClick ? 'pointer' : 'default',
@@ -65,7 +70,7 @@ function Header(props: HeaderProps) {
 
   return (
     <Table.Header className={className}>
-      { !isNil(rangeRowContent) && <HeaderRange content={rangeRowContent} /> }
+      {!isNil(rangeRowContent) && <HeaderRange content={rangeRowContent} />}
       <Table.Row>
         <Table.HeaderCell style={cellStyle} colSpan='1'>
           <Icon
@@ -80,7 +85,7 @@ function Header(props: HeaderProps) {
           onClick={onHeaderClick ? onHeaderClick : undefined}
           style={cellStyle}
           colSpan={(width - 2).toString()}>
-          <span style={headerTitleStyle}>{ title }</span>
+          <span style={headerTitleStyle}>{title}</span>
         </Table.HeaderCell>
 
         <Table.HeaderCell style={cellStyle} colSpan='1'>
@@ -92,7 +97,7 @@ function Header(props: HeaderProps) {
             name='chevron right' />
         </Table.HeaderCell>
       </Table.Row>
-      { displayWeeks && <HeaderWeeks localization={localization} /> }
+      {displayWeeks && <HeaderWeeks localization={localization} />}
     </Table.Header>
   );
 }
