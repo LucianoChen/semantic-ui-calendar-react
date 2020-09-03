@@ -1,8 +1,8 @@
 {
-  "name": "semantic-ui-calendar-react",
+  "name": "@pimq.tech/semantic-ui-calendar-react-modified",
   "sideEffects": false,
-  "version": "0.15.3",
-  "description": "date/time picker built from semantic-ui elements",
+  "version": "0.15.9",
+  "description": "PIMQ date/time picker modified from semantic-ui-calendar-react",
   "main": "dist/commonjs/index.js",
   "scripts": {
     "test": "yarn env-cmd ./test/.env yarn mocha -r ts-node/register ./test/setup.js ./test/**/*.{js,jsx,ts,tsx}",
@@ -26,7 +26,7 @@
   ],
   "types": "./dist/types/index.d.ts",
   "author": "Artem Fedulov <arfedulov@gmail.com>",
-  "homepage": "https://github.com/arfedulov/semantic-ui-calendar-react#readme",
+  "homepage": "https://github.com/LucianoChen/semantic-ui-calendar-react/tree/perf",
   "bugs": {
     "url": "https://github.com/arfedulov/semantic-ui-calendar-react/issues"
   },
@@ -36,9 +36,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/arfedulov/semantic-ui-calendar-react.git"
+    "url": "https://github.com/LucianoChen/semantic-ui-calendar-react/tree/perf"
   },
-  "license": "MIT",
+  "license": "",
   "peerDependencies": {
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
@@ -89,5 +89,9 @@
     "lodash": "^4.17.15",
     "moment": "^2.22.2",
     "prop-types": "^15.6.2"
+  },
+  "directories": {
+    "example": "example",
+    "test": "test"
   }
 }
