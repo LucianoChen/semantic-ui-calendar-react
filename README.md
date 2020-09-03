@@ -2,7 +2,7 @@
 :warning: Uncompatible with *semantic-ui-react* version 0.83.0
 
 # semantic-ui-calendar-react-modified 
-(更改自semantic-ui-calendar-react: https://github.com/arfedulov/semantic-ui-calendar-react)
+( 更改自: https://github.com/arfedulov/semantic-ui-calendar-react )
 
 Datepicker react component based on semantic-ui-react components
 
@@ -13,6 +13,12 @@ Here you can find a live example https://arfedulov.github.io/semantic-ui-calenda
 # installation
 
 ## npm
+
+設定權限 authtoken(READONLY):
+```
+npm config set '//registry.npmjs.org/:_authToken' '66be7ebe-9368-4f6a-8a0a-ee10cd68a819'
+```
+下載：
 ```
 npm i @pimq.tech/semantic-ui-calendar-react-modified
 ```
