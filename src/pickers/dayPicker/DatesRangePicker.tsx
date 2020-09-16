@@ -273,7 +273,7 @@ class DatesRangePicker
           end: start,
         };
       }
-    } else if(start!==undefined && end!==undefined) {
+    } else if(!isNil(start) && !isNil(end)) {
       const selectedDate = buildMoment(this.state.date, firstOnPage, itemPosition, localization);
       data.value = {
         start: selectedDate,

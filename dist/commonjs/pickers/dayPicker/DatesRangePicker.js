@@ -97,7 +97,7 @@ var DatesRangePicker = /** @class */ (function (_super) {
                     };
                 }
             }
-            else if (start !== undefined && end !== undefined) {
+            else if (!isNil_1.default(start) && !isNil_1.default(end)) {
                 var selectedDate = buildMoment(_this.state.date, firstOnPage, itemPosition, localization);
                 data.value = {
                     start: selectedDate,

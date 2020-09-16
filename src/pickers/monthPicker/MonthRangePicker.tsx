@@ -3,11 +3,11 @@ import range from 'lodash/range';
 import includes from 'lodash/includes';
 import isNil from 'lodash/isNil';
 
-import {Moment} from 'moment';
+import { Moment } from 'moment';
 import moment from 'moment';
 import * as React from 'react';
 
-import {RangeIndexes} from '../../views/BaseCalendarView';
+import { RangeIndexes } from '../../views/BaseCalendarView';
 import MonthRangeView from '../../views/MonthRangeView';
 import {
   BasePickerOnChangeData,
@@ -83,7 +83,7 @@ class MonthRangePicker
         currentRangeHeadingValue={this.getSelectedRange()}
         activeRange={this.getActiveCellsPositions()}
         disabledItemIndexes={this.getDisabledPositions()}
-        localization={localization}/>
+        localization={localization} />
     );
   }
 
@@ -149,13 +149,13 @@ class MonthRangePicker
   }
 
   protected isNextPageAvailable(): boolean {
-    const {maxDate} = this.props;
+    const { maxDate } = this.props;
 
     return isNextPageAvailable(maxDate, undefined, this.state.date);
   }
 
   protected isPrevPageAvailable(): boolean {
-    const {minDate} = this.props;
+    const { minDate } = this.props;
 
     return isPrevPageAvailable(minDate, undefined, this.state.date);
   }
@@ -171,7 +171,7 @@ class MonthRangePicker
     return `${start ? start.format(dateFormat) : '- - -'} - ${end ? end.format(dateFormat) : '- - -'}`;
   }
 
-  protected handleChange = (e: React.SyntheticEvent<HTMLElement>, {itemPosition}) => {
+  protected handleChange = (e: React.SyntheticEvent<HTMLElement>, { itemPosition }) => {
     // call `onChange` with value: { start: moment, end: moment }
     const {
       start,
@@ -182,22 +182,36 @@ class MonthRangePicker
       ...this.props,
       value: {},
     };
+    console.log(moment({ year: this.state.date.year(), month: itemPosition, date: 1 }))
 
     if (isNil(start) && isNil(end)) {
       data.value =
-      localization
-      ? {start: moment({year: this.state.date.year(), month: itemPosition, date: 1}).locale(localization)}
-      : {start: moment({year: this.state.date.year(), month: itemPosition, date: 1})};
+        localization
+          ? { start: moment({ year: this.state.date.year(), month: itemPosition, date: 1 }).locale(localization) }
+          : { start: moment({ year: this.state.date.year(), month: itemPosition, date: 1 }) };
     } else if (!isNil(start) && isNil(end)) {
-      data.value =
-      localization
-      ? {
-        start,
-        end: moment({year: this.state.date.year(), month: itemPosition, date: 1}).locale(localization).endOf('month'),
+      const selectedDate = localization ?
+        moment({ year: this.state.date.year(), month: itemPosition, date: 1 }).locale(localization).endOf('month')
+        : moment({ year: this.state.date.year(), month: itemPosition, date: 1 }).endOf('month')
+
+      if (selectedDate.isAfter(start, 'date')) {
+        data.value = {
+          start,
+          end: selectedDate,
+        };
+      } else if (!selectedDate.isSame(start, 'date')) {
+        data.value = {
+          start: selectedDate,
+          end: start,
+        };
       }
-      : {
-        start,
-        end: moment({year: this.state.date.year(), month: itemPosition, date: 1}).endOf('month'),
+    } else if (!isNil(start) && !isNil(end)) {
+      const selectedDate = localization ?
+        moment({ year: this.state.date.year(), month: itemPosition, date: 1 }).locale(localization).endOf('month')
+        : moment({ year: this.state.date.year(), month: itemPosition, date: 1 }).endOf('month')
+
+      data.value = {
+        start: selectedDate,
       };
     }
 
@@ -205,24 +219,24 @@ class MonthRangePicker
   }
 
   protected switchToNextPage = (e: React.SyntheticEvent<HTMLElement>,
-                                data: any,
-                                callback: () => void): void => {
-    this.setState(({date}) => {
+    data: any,
+    callback: () => void): void => {
+    this.setState(({ date }) => {
       const nextDate = date.clone();
       nextDate.add(1, 'year');
 
-      return {date: nextDate};
+      return { date: nextDate };
     }, callback);
   }
 
   protected switchToPrevPage = (e: React.SyntheticEvent<HTMLElement>,
-                                data: any,
-                                callback: () => void): void => {
-    this.setState(({date}) => {
+    data: any,
+    callback: () => void): void => {
+    this.setState(({ date }) => {
       const prevDate = date.clone();
       prevDate.subtract(1, 'year');
 
-      return {date: prevDate};
+      return { date: prevDate };
     }, callback);
   }
 

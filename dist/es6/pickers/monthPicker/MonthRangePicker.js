@@ -52,6 +52,7 @@ var MonthRangePicker = /** @class */ (function (_super) {
             // call `onChange` with value: { start: moment, end: moment }
             var _b = _this.props, start = _b.start, end = _b.end, localization = _b.localization;
             var data = __assign(__assign({}, _this.props), { value: {} });
+            console.log(moment({ year: _this.state.date.year(), month: itemPosition, date: 1 }));
             if (isNil(start) && isNil(end)) {
                 data.value =
                     localization
@@ -59,16 +60,29 @@ var MonthRangePicker = /** @class */ (function (_super) {
                         : { start: moment({ year: _this.state.date.year(), month: itemPosition, date: 1 }) };
             }
             else if (!isNil(start) && isNil(end)) {
-                data.value =
-                    localization
-                        ? {
-                            start: start,
-                            end: moment({ year: _this.state.date.year(), month: itemPosition, date: 1 }).locale(localization).endOf('month'),
-                        }
-                        : {
-                            start: start,
-                            end: moment({ year: _this.state.date.year(), month: itemPosition, date: 1 }).endOf('month'),
-                        };
+                var selectedDate = localization ?
+                    moment({ year: _this.state.date.year(), month: itemPosition, date: 1 }).locale(localization).endOf('month')
+                    : moment({ year: _this.state.date.year(), month: itemPosition, date: 1 }).endOf('month');
+                if (selectedDate.isAfter(start, 'date')) {
+                    data.value = {
+                        start: start,
+                        end: selectedDate,
+                    };
+                }
+                else if (!selectedDate.isSame(start, 'date')) {
+                    data.value = {
+                        start: selectedDate,
+                        end: start,
+                    };
+                }
+            }
+            else if (!isNil(start) && !isNil(end)) {
+                var selectedDate = localization ?
+                    moment({ year: _this.state.date.year(), month: itemPosition, date: 1 }).locale(localization).endOf('month')
+                    : moment({ year: _this.state.date.year(), month: itemPosition, date: 1 }).endOf('month');
+                data.value = {
+                    start: selectedDate,
+                };
             }
             _this.props.onChange(e, data);
         };
