@@ -74,7 +74,6 @@ define(["require", "exports", "lodash/filter", "lodash/range", "lodash/includes"
                 // call `onChange` with value: { start: moment, end: moment }
                 var _b = _this.props, start = _b.start, end = _b.end, localization = _b.localization;
                 var data = __assign(__assign({}, _this.props), { value: {} });
-                console.log(moment_1.default({ year: _this.state.date.year(), month: itemPosition, date: 1 }));
                 if (isNil_1.default(start) && isNil_1.default(end)) {
                     data.value =
                         localization

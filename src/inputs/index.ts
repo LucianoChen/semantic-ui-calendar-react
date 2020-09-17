@@ -24,6 +24,11 @@ export {
   YearInputOnChangeData,
 } from './YearInput';
 export {
+  default as YearRangeInput,
+  YearRangeInputProps,
+  YearRangeInputOnChangeData,
+} from './YearRangeInput';
+export {
   default as MonthInput,
   MonthInputProps,
   MonthInputOnChangeData,

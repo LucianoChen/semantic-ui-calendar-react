@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { OnValueClickData } from '../BaseCalendarView';
-export declare type BodyWidth = 3 | 4 | 7;
+export declare type BodyWidth = 2 | 3 | 4 | 7 | 5;
 interface BodyProps {
     /** A number of columns in a row. */
     width: BodyWidth;

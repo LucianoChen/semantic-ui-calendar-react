@@ -3,5 +3,6 @@ export { default as DateTimeInput, DateTimeInputProps, DateTimeInputOnChangeData
 export { default as DatesRangeInput, DatesRangeInputProps, DatesRangeInputOnChangeData, } from './DatesRangeInput';
 export { default as TimeInput, TimeInputProps, TimeInputOnChangeData, } from './TimeInput';
 export { default as YearInput, YearInputProps, YearInputOnChangeData, } from './YearInput';
+export { default as YearRangeInput, YearRangeInputProps, YearRangeInputOnChangeData, } from './YearRangeInput';
 export { default as MonthInput, MonthInputProps, MonthInputOnChangeData, } from './MonthInput';
 export { default as MonthRangeInput, MonthRangeInputProps, MonthRangeInputOnChangeData, } from './MonthRangeInput';

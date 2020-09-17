@@ -22,7 +22,8 @@ import {
   MonthRangeInputOnChangeData,
   TimeInput,
   TimeInputOnChangeData,
-  YearInput,
+  YearInput, 
+  YearRangeInput,
   YearInputOnChangeData,
 } from '../src/inputs';
 
@@ -214,7 +215,7 @@ class DateTimeForm extends React.Component<any, any> {
           iconPosition='left'
           autoComplete='off'
           value={this.state.monthRange}
-          onChange={this.handleChange}/>
+          onChange={this.handleChange} />
       </Form>
     );
   }
@@ -238,6 +239,7 @@ class DateTimeFormInline extends React.Component<any, any> {
       dateTime: '',
       datesRange: '',
       monthRange: '',
+      yearRange: '',
     };
   }
 
@@ -293,13 +295,22 @@ class DateTimeFormInline extends React.Component<any, any> {
           name='month'
           onChange={this.handleChange}
         />
-        <br/>
+        <br />
         <MonthRangeInput
           inline
           className='example-calendar-input'
           value={this.state.monthRange}
           name='monthRange'
           onChange={this.handleChange}
+        />
+        <YearRangeInput
+          inline
+          className='example-calendar-input'
+          value={this.state.yearRange}
+          name='yearRange'
+          onChange={this.handleChange}
+          minDate={new Date()}
+          initialDate={'2062'}
         />
       </Form>
     );

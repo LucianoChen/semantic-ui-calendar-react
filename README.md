@@ -316,6 +316,33 @@ You can also set locale for *Input component locally using ``localization`` prop
 | ``iconPosition`` | {'left'\|'right'} icon position inside Input. Default: 'right'. |
 | ``hideMobileKeyboard`` | {bool} Try to prevent mobile keyboard appearing. |
 
+### YearRangeInput
+
+| Prop | Description |
+| -----| ------------|
+| all that can be used with SUIR Form.Input | |
+| ``value`` | {string} Currently selected value; must have format ``dateFormat``. |
+| ``popupPosition``| {string} One of ['top left', 'top right', 'bottom left', 'bottom right', 'right center', 'left center', 'top center', 'bottom center']. Default: ``top left``|
+| ``inline`` | {bool} If ``true`` inline picker displayed. Default: ``false`` |
+| ``closable`` | {bool} If true, popup closes after selecting a year   |
+| ``inlineLabel`` | {bool} A field can have its label next to instead of above it. |
+| ``closeOnMouseLeave`` | {bool} Should close when cursor leaves calendar popup. Default: ``true`` |
+| ``maxDate`` | {string\|Moment\|Date\|string[]\|Moment[]\|Date[]} Maximum date that can be selected. |
+| ``minDate`` | {string\|Moment\|Date\|string[]\|Moment[]\|Date[]} Minimum date that can be selected. |
+| ``initialDate`` | {string\|moment\|Date} Date on which calendar opens. By default it opens on today's date. (Do not be confused by property name. For setting some default value just set into `value` prop). |
+| ``mountNode`` | {any} The node where the picker should mount. |
+| ``onClear`` | {func} Called after clear icon has clicked. |
+| ``clearable`` | {boolean} Using the clearable setting will let users remove their selection from a calendar. |
+| ``clearIcon`` | {any} Optional Icon to display inside the clearable Input. |
+| ``pickerWidth`` | {string} Optional width value for picker (any string value that could be assigned to `style.width`). |
+| ``pickerStyle`` | {object} Optional `style` object for picker. |
+| ``duration`` | {number} Optional duration of the CSS transition animation in milliseconds. Default: `200` |
+| ``animation`` | {string} Optional named animation event to used. Must be defined in CSS. Default: `'scale'` |
+| ``localization`` | {string} Sets Moment date locale locally for this component. |
+| ``icon`` | {string\|false} icon to display inside Input. |
+| ``iconPosition`` | {'left'\|'right'} icon position inside Input. Default: 'right'. |
+| ``hideMobileKeyboard`` | {bool} Try to prevent mobile keyboard appearing. |
+
 ### MonthInput
 
 | Prop | Description |

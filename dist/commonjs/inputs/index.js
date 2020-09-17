@@ -10,6 +10,8 @@ var TimeInput_1 = require("./TimeInput");
 Object.defineProperty(exports, "TimeInput", { enumerable: true, get: function () { return TimeInput_1.default; } });
 var YearInput_1 = require("./YearInput");
 Object.defineProperty(exports, "YearInput", { enumerable: true, get: function () { return YearInput_1.default; } });
+var YearRangeInput_1 = require("./YearRangeInput");
+Object.defineProperty(exports, "YearRangeInput", { enumerable: true, get: function () { return YearRangeInput_1.default; } });
 var MonthInput_1 = require("./MonthInput");
 Object.defineProperty(exports, "MonthInput", { enumerable: true, get: function () { return MonthInput_1.default; } });
 var MonthRangeInput_1 = require("./MonthRangeInput");

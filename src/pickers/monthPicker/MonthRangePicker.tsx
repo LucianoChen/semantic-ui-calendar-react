@@ -182,7 +182,6 @@ class MonthRangePicker
       ...this.props,
       value: {},
     };
-    console.log(moment({ year: this.state.date.year(), month: itemPosition, date: 1 }))
 
     if (isNil(start) && isNil(end)) {
       data.value =
@@ -214,7 +213,6 @@ class MonthRangePicker
         start: selectedDate,
       };
     }
-
     this.props.onChange(e, data);
   }
 

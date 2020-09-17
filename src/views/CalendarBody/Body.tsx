@@ -13,7 +13,7 @@ import {
   CellWidthStyle,
 } from './Cell';
 
-export type BodyWidth = 3 | 4 | 7;
+export type BodyWidth = 2 | 3 | 4 | 7 | 5;
 
 interface BodyProps {
   /** A number of columns in a row. */
