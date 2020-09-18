@@ -1,6 +1,6 @@
 /// <reference types="react" />
 import BaseCalendarView, { BaseCalendarViewProps, CalendarWithHeaderViewProps, HeadingValueProps, RangeSelectionCalendarViewProps } from './BaseCalendarView';
-export declare const YEAR_RANGE_CALENDAR_ROW_WIDTH = 4;
+export declare const YEAR_RANGE_CALENDAR_ROW_WIDTH = 3;
 export declare const YEAR_POSITIONS: number[];
 interface YearRangeViewProps extends BaseCalendarViewProps, HeadingValueProps, RangeSelectionCalendarViewProps, CalendarWithHeaderViewProps {
 }
