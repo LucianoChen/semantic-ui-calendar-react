@@ -174,6 +174,9 @@ class DateTimeForm extends React.Component<any, any> {
           iconPosition='left'
           autoComplete='off'
           onChange={this.handleChange}
+          minDate={new Date('2020-01-01')}
+          maxDate={new Date()}
+          // initialDate={new Date('2020-04-01')}
         />
         <br />
         <YearInput
@@ -215,6 +218,7 @@ class DateTimeForm extends React.Component<any, any> {
           iconPosition='left'
           autoComplete='off'
           value={this.state.monthRange}
+          maxDate={new Date()}
           onChange={this.handleChange} />
       </Form>
     );

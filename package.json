@@ -1,7 +1,7 @@
 {
   "name": "@pimq.tech/semantic-ui-calendar-react-modified",
   "sideEffects": false,
-  "version": "0.15.22",
+  "version": "0.15.24",
   "description": "PIMQ date/time picker modified from semantic-ui-calendar-react",
   "main": "dist/commonjs/index.js",
   "scripts": {

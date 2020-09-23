@@ -119,7 +119,7 @@ class DatesRangeInput extends BaseInput<DatesRangeInputProps, BaseInputState> {
 
     let initializeWith;
 
-    if (!initialDate && minDateParsed || maxDateParsed) {
+    if (!start && !initialDate && (minDateParsed || maxDateParsed)) {
       initializeWith = minDateParsed || maxDateParsed;
     } else {
       initializeWith = buildValue(start, initialDate, localization, dateFormat);
@@ -152,7 +152,7 @@ class DatesRangeInput extends BaseInput<DatesRangeInputProps, BaseInputState> {
   }
 
   private handleSelect = (e: React.SyntheticEvent<HTMLElement>,
-                          { value }: DatesRangePickerOnChangeData) => {
+    { value }: DatesRangePickerOnChangeData) => {
     const { dateFormat } = this.props;
     const {
       start,

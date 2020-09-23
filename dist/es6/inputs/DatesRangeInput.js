@@ -51,7 +51,7 @@ var DatesRangeInput = /** @class */ (function (_super) {
             var minDateParsed = parseValue(minDate, dateFormat, localization);
             var maxDateParsed = parseValue(maxDate, dateFormat, localization);
             var initializeWith;
-            if (!initialDate && minDateParsed || maxDateParsed) {
+            if (!start && !initialDate && (minDateParsed || maxDateParsed)) {
                 initializeWith = minDateParsed || maxDateParsed;
             }
             else {

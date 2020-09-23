@@ -75,7 +75,7 @@ define(["require", "exports", "lodash/invoke", "react", "../views/InputView", ".
                 var minDateParsed = parse_1.parseValue(minDate, dateFormat, localization);
                 var maxDateParsed = parse_1.parseValue(maxDate, dateFormat, localization);
                 var initializeWith;
-                if (!initialDate && minDateParsed || maxDateParsed) {
+                if (!start && !initialDate && (minDateParsed || maxDateParsed)) {
                     initializeWith = minDateParsed || maxDateParsed;
                 }
                 else {
